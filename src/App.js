@@ -1,24 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Intro from './pages/Intro';
+import Introagain from './pages/Introagain';
+import Finalintro from './pages/Finalintro';
+import Instructions from './pages/Instructions';
+import Activity from './pages/Activity';
+import FinalScreen from './pages/FinalScreen';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+        <Route path="/" element={<Intro />} />
+        <Route path="/start" element={<Introagain />} />
+        <Route path="/next" element={<Finalintro />} />
+        <Route path="/yes" element={<Instructions />} />
+        <Route path="/play" element={<Activity/>} />
+        <Route path="/final" element={<FinalScreen/>} />
+        <Route path="*" element={"No route available"} />
+    </Routes>
+  </BrowserRouter>
   );
 }
 
